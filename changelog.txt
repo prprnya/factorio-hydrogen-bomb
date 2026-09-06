@@ -1,11 +1,10 @@
 ---------------------------------------------------------------------------------------------------
 Version: 0.1.0
 Date: 2026-09-07
-  Balancing:
-    - Doubled hydrogen bomb impact, ground-zero, and blast-wave damage without changing blast geometry or repeat counts.
-  Bugfixes:
-    - Limited nuclear ground patch collision bounds and decorative spawn radii to engine limits so the mod loads, while preserving 2x visual and blast scale.
   Features:
-    - Added the initial hydrogen bomb test implementation.
-    - Added a 2x spatial-scale variant of the vanilla atomic-bomb effects while keeping vanilla repeat counts.
-    - Added the hydrogen bomb recipe, technology, localization, and custom item icon.
+    - Late-game hydrogen bomb rocket ammunition for Factorio: Space Age, with twice the vanilla atomic bomb's damage and blast scale.
+    - Vanilla nuclear explosion visuals and planetary surface effects.
+    - Recipe: 1 atomic bomb, 10 fusion power cells, and 10 quantum processors, with a crafting time of 50 seconds.
+    - Technology requiring atomic bomb, fusion reactor, and legendary quality, with 2000 research units at 60 seconds each.
+    - Cyan fusion-themed ammunition icon and a technology icon combining the atomic bomb and fusion power cell.
+    - English and Simplified Chinese localization.
