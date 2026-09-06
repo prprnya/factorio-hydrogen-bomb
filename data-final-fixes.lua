@@ -212,7 +212,7 @@ hydrogen_bomb.pictures =
   }
 }
 hydrogen_bomb.ammo_type.action.action_delivery.projectile = "hydrogen-rocket"
-hydrogen_bomb.order = "d[rocket-launcher]-e[hydrogen-bomb]"
+hydrogen_bomb.order = data.raw["ammo"]["atomic-bomb"].order
 hydrogen_bomb.localised_description = {"item-description.hydrogen-bomb"}
 
 -- Production recipe: atomic primary + fusion fuel + end-game electronics.
