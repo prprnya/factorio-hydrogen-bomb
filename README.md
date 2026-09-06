@@ -2,12 +2,13 @@
 
 Adds a late-game hydrogen bomb to Factorio: Space Age.
 
-The hydrogen bomb is a direct upgrade to the atomic bomb. It uses the same rocket-ammunition ecosystem and vanilla nuclear-explosion effects, but doubles the spatial scale of the blast.
+The hydrogen bomb is a direct upgrade to the atomic bomb. It uses the same rocket-ammunition ecosystem and vanilla nuclear-explosion effects, but doubles the blast damage and spatial scale.
 
 ## Features
 
 - Hydrogen bomb rocket ammunition compatible with vanilla rocket launch platforms.
 - Blast geometry doubled relative to the vanilla atomic bomb.
+- Impact, ground-zero, and blast-wave damage doubled relative to the vanilla atomic bomb.
 - Vanilla nuclear explosion visuals and planetary surface effects are preserved.
 - No custom runtime scripts; the mod is implemented entirely in the data stage.
 - Technology requires Atomic bomb, Fusion reactor, and Legendary quality.

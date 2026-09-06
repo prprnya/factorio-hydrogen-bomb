@@ -1,6 +1,8 @@
 ---------------------------------------------------------------------------------------------------
 Version: 0.1.0
 Date: 2026-09-07
+  Balancing:
+    - Doubled hydrogen bomb impact, ground-zero, and blast-wave damage without changing blast geometry or repeat counts.
   Bugfixes:
     - Limited nuclear ground patch collision bounds and decorative spawn radii to engine limits so the mod loads, while preserving 2x visual and blast scale.
   Features:

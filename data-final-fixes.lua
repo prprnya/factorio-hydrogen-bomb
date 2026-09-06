@@ -1,4 +1,5 @@
 local SCALE = 2
+local DAMAGE_MULTIPLIER = 2
 local MAX_DECORATIVE_SPAWN_RADIUS = 24 - 1 / 256
 
 local function clone_prototype(prototype_type, source_name, new_name)
@@ -96,6 +97,18 @@ local function scale_trigger_geometry(value)
   end
 end
 
+local function scale_trigger_damage(value)
+  if type(value) ~= "table" then return end
+  if value.type == "damage" then
+    value.damage.amount = value.damage.amount * DAMAGE_MULTIPLIER
+  end
+  for _, child in pairs(value) do
+    if type(child) == "table" then
+      scale_trigger_damage(child)
+    end
+  end
+end
+
 local function scale_box(box)
   if type(box) ~= "table" then return end
   scale_coordinate_tree(box)
@@ -117,9 +130,11 @@ end
 -- Damage-wave projectiles. Repeat counts are intentionally left unchanged for the first test release.
 local hydrogen_wave = clone_prototype("projectile", "atomic-bomb-wave", "hydrogen-bomb-wave")
 scale_trigger_geometry(hydrogen_wave.action)
+scale_trigger_damage(hydrogen_wave.action)
 
 local hydrogen_ground_zero = clone_prototype("projectile", "atomic-bomb-ground-zero-projectile", "hydrogen-bomb-ground-zero-projectile")
 scale_trigger_geometry(hydrogen_ground_zero.action)
+scale_trigger_damage(hydrogen_ground_zero.action)
 
 -- Secondary visual-effect projectiles. Their distribution geometry is doubled, but effect counts stay vanilla.
 local hydrogen_shockwave_spawner = clone_prototype("projectile", "atomic-bomb-wave-spawns-nuke-shockwave-explosion", "hydrogen-bomb-wave-spawns-nuke-shockwave-explosion")
@@ -190,10 +205,11 @@ for _, corner in ipairs(hydrogen_ground_patch.collision_box) do
 end
 scale_sprite_tree(hydrogen_ground_patch.pictures)
 
--- Rocket projectile. Trigger geometry is doubled within decorative limits; counts, timing, speed and damage stay vanilla.
+-- Rocket projectile. Geometry and damage are doubled within decorative limits; counts, timing and speed stay vanilla.
 local hydrogen_rocket = clone_prototype("projectile", "atomic-rocket", "hydrogen-rocket")
 replace_references(hydrogen_rocket)
 scale_trigger_geometry(hydrogen_rocket.action)
+scale_trigger_damage(hydrogen_rocket.action)
 hydrogen_rocket.animation = require("__base__.prototypes.entity.rocket-projectile-pictures").animation({0.3, 0.873, 1.0})
 
 -- Ammunition item. Keep vanilla atomic-bomb range/cooldown, stack size, weight and sounds; remove the green light layer.
