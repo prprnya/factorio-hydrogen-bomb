@@ -1,0 +1,13 @@
+{
+  "name": "hydrogen-bomb",
+  "version": "0.1.0",
+  "title": "Hydrogen Bomb",
+  "author": "prprnya",
+  "factorio_version": "2.1",
+  "dependencies": [
+    "base >= 2.0.7",
+    "space-age >= 2.0.7",
+    "quality >= 2.0.7"
+  ],
+  "description": "Adds a late-game hydrogen bomb: a 2x spatial-scale variant of the vanilla atomic bomb using Space Age fusion technology."
+}

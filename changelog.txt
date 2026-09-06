@@ -1,0 +1,7 @@
+---------------------------------------------------------------------------------------------------
+Version: 0.1.0
+Date: 2026-09-07
+  Features:
+    - Added the initial hydrogen bomb test implementation.
+    - Added a 2x spatial-scale variant of the vanilla atomic-bomb effects while keeping vanilla repeat counts.
+    - Added the hydrogen bomb recipe, technology, localization, and custom item icon.
