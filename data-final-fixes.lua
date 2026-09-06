@@ -1,4 +1,5 @@
 local SCALE = 2
+local MAX_DECORATIVE_SPAWN_RADIUS = 24 - 1 / 256
 
 local function clone_prototype(prototype_type, source_name, new_name)
   local bucket = data.raw[prototype_type]
@@ -88,6 +89,11 @@ local function scale_trigger_geometry(value)
       scale_trigger_geometry(child)
     end
   end
+  -- Decorative spawning has a strict radius limit of 24 tiles, independent of blast damage and sprite size.
+  if value.type == "create-decorative" then
+    value.spawn_max_radius = math.min(value.spawn_max_radius, MAX_DECORATIVE_SPAWN_RADIUS)
+    value.spawn_min_radius = math.min(value.spawn_min_radius, value.spawn_max_radius)
+  end
 end
 
 local function scale_box(box)
@@ -176,9 +182,15 @@ scale_sprite_tree(hydrogen_scorchmark.ground_patch_higher)
 
 local hydrogen_ground_patch = clone_prototype("optimized-decorative", "nuclear-ground-patch", "hydrogen-nuclear-ground-patch")
 scale_box(hydrogen_ground_patch.collision_box)
+-- Factorio limits decorative collision boxes to 8 tiles in each direction; sprites can still scale by 2x.
+for _, corner in ipairs(hydrogen_ground_patch.collision_box) do
+  for axis, coordinate in ipairs(corner) do
+    corner[axis] = math.max(-8, math.min(8, coordinate))
+  end
+end
 scale_sprite_tree(hydrogen_ground_patch.pictures)
 
--- Rocket projectile. All trigger-effect geometry is doubled; counts, timing, speed and damage amounts remain vanilla.
+-- Rocket projectile. Trigger geometry is doubled within decorative limits; counts, timing, speed and damage stay vanilla.
 local hydrogen_rocket = clone_prototype("projectile", "atomic-rocket", "hydrogen-rocket")
 replace_references(hydrogen_rocket)
 scale_trigger_geometry(hydrogen_rocket.action)

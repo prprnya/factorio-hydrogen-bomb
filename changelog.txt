@@ -1,6 +1,8 @@
 ---------------------------------------------------------------------------------------------------
 Version: 0.1.0
 Date: 2026-09-07
+  Bugfixes:
+    - Limited nuclear ground patch collision bounds and decorative spawn radii to engine limits so the mod loads, while preserving 2x visual and blast scale.
   Features:
     - Added the initial hydrogen bomb test implementation.
     - Added a 2x spatial-scale variant of the vanilla atomic-bomb effects while keeping vanilla repeat counts.
