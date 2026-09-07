@@ -1,0 +1,53 @@
+name: Package
+
+on:
+  push:
+    branches:
+      - "**"
+  workflow_call:
+    inputs:
+      ref:
+        description: Git ref to package
+        required: false
+        type: string
+    outputs:
+      package:
+        description: Packaged mod filename
+        value: ${{ jobs.package.outputs.package }}
+
+permissions:
+  contents: read
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    outputs:
+      package: ${{ steps.metadata.outputs.package }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: ${{ inputs.ref || github.sha }}
+
+      - name: Read mod metadata
+        id: metadata
+        shell: bash
+        run: |
+          set -euo pipefail
+          name="$(jq -r '.name' info.json)"
+          version="$(jq -r '.version' info.json)"
+          echo "package=${name}_${version}.zip" >> "$GITHUB_OUTPUT"
+
+      - name: Package mod
+        shell: bash
+        env:
+          PACKAGE: ${{ steps.metadata.outputs.package }}
+        run: |
+          set -euo pipefail
+          root="${PACKAGE%.zip}"
+          git archive --format=zip --prefix="${root}/" -o "$PACKAGE" HEAD
+
+      - uses: actions/upload-artifact@v7
+        with:
+          path: ${{ steps.metadata.outputs.package }}
+          archive: false
+          if-no-files-found: error

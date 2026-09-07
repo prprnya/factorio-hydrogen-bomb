@@ -1,0 +1,72 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*.*.*"
+  workflow_dispatch:
+    inputs:
+      version:
+        description: Version to publish, e.g. 0.1.1
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+jobs:
+  package:
+    uses: ./.github/workflows/package.yml
+    with:
+      ref: ${{ github.event_name == 'workflow_dispatch' && format('refs/tags/v{0}', inputs.version) || github.ref }}
+
+  publish:
+    needs: package
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/download-artifact@v8
+        with:
+          name: ${{ needs.package.outputs.package }}
+          path: dist
+          skip-decompress: true
+
+      - name: Publish to Factorio Mod Portal
+        shell: bash
+        env:
+          PACKAGE: ${{ needs.package.outputs.package }}
+          REQUESTED_VERSION: ${{ github.event_name == 'workflow_dispatch' && inputs.version || github.ref_name }}
+          MOD_PORTAL_TOKEN: ${{ secrets.FACTORIO_MOD_PORTAL_TOKEN }}
+        run: |
+          set -euo pipefail
+
+          archive="dist/$PACKAGE"
+          root="${PACKAGE%.zip}"
+          info="$(unzip -p "$archive" "$root/info.json")"
+          mod="$(jq -r '.name' <<< "$info")"
+          version="$(jq -r '.version' <<< "$info")"
+          summary="$(jq -r '.description' <<< "$info")"
+          expected="${REQUESTED_VERSION#v}"
+
+          if [[ "$version" != "$expected" ]]; then
+            echo "::error::info.json version $version does not match requested version $expected"
+            exit 1
+          fi
+
+          unzip -p "$archive" "$root/README.md" > README.md
+
+          curl -fsS \
+            -H "Authorization: Bearer $MOD_PORTAL_TOKEN" \
+            -F "mod=$mod" \
+            --form-string "summary=$summary" \
+            -F "description=<README.md" \
+            https://mods.factorio.com/api/v2/mods/edit_details
+
+          response="$(curl -fsS \
+            -H "Authorization: Bearer $MOD_PORTAL_TOKEN" \
+            -F "mod=$mod" \
+            https://mods.factorio.com/api/v2/mods/releases/init_upload)"
+          upload_url="$(jq -er '.upload_url' <<< "$response")"
+
+          curl -fsS \
+            -F "file=@$archive" \
+            "$upload_url"
