@@ -5,6 +5,7 @@ Adds a late-game hydrogen bomb with far greater blast radius and damage than the
 ## Features
 
 - A new hydrogen bomb for the rocket launcher, Spidertron, and rocket turret.
+- A new in-game achievement, "A thousand suns", for firing a hydrogen bomb.
 - Far greater blast radius and damage than the atomic bomb.
 - Preserves the vanilla nuclear explosion style and surface-specific effects.
 - Requires Atomic bomb, Fusion reactor, and Legendary quality.
