@@ -1,4 +1,9 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.2.0
+Date: 2026-09-07
+  Changes:
+    - Added the Space Age feature flag so the mod is classified as a Space Age mod on the Mod Portal.
+---------------------------------------------------------------------------------------------------
 Version: 0.1.0
 Date: 2026-09-07
   Features:
