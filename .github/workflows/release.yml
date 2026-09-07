@@ -52,15 +52,6 @@ jobs:
             exit 1
           fi
 
-          unzip -p "$archive" "$root/README.md" > README.md
-
-          curl -fsS \
-            -H "Authorization: Bearer $MOD_PORTAL_TOKEN" \
-            -F "mod=$mod" \
-            --form-string "summary=$summary" \
-            -F "description=<README.md" \
-            https://mods.factorio.com/api/v2/mods/edit_details
-
           response="$(curl -fsS \
             -H "Authorization: Bearer $MOD_PORTAL_TOKEN" \
             -F "mod=$mod" \
@@ -70,3 +61,12 @@ jobs:
           curl -fsS \
             -F "file=@$archive" \
             "$upload_url"
+
+          unzip -p "$archive" "$root/README.md" > README.md
+
+          curl -fsS \
+            -H "Authorization: Bearer $MOD_PORTAL_TOKEN" \
+            -F "mod=$mod" \
+            --form-string "summary=$summary" \
+            -F "description=<README.md" \
+            https://mods.factorio.com/api/v2/mods/edit_details
