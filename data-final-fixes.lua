@@ -255,8 +255,9 @@ hydrogen_technology.icons =
   {
     icon = "__space-age__/graphics/icons/fusion-power-cell.png",
     icon_size = 64,
-    scale = 1,
-    shift = {50, 50},
+    -- Keep the floating badge inside both featured and compact technology cards.
+    scale = 0.8,
+    shift = {34, 43},
     floating = true
   }
 }
