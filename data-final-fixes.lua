@@ -286,10 +286,32 @@ hydrogen_technology.unit =
 }
 hydrogen_technology.localised_description = {"technology-description.hydrogen-bomb"}
 
+-- Achievement: mirror the vanilla atomic-bomb achievement for firing a hydrogen bomb.
+local hydrogen_achievement = clone_prototype("shoot-achievement", "destroyer-of-worlds", "a-thousand-suns")
+hydrogen_achievement.order = "f[kill]-f[destroyer-of-worlds]-b[a-thousand-suns]"
+hydrogen_achievement.ammo_type = "hydrogen-bomb"
+hydrogen_achievement.amount = 1
+hydrogen_achievement.icon = nil
+hydrogen_achievement.icon_size = nil
+hydrogen_achievement.icons =
+{
+  {
+    icon = "__base__/graphics/achievement/destroyer-of-worlds.png",
+    icon_size = 128
+  },
+  {
+    icon = "__hydrogen-bomb__/graphics/icons/hydrogen-bomb.png",
+    icon_size = 64,
+    scale = 0.5,
+    shift = {16, 16}
+  }
+}
+
 -- Basic load-time sanity checks for the assumptions this test build relies on.
 assert(hydrogen_bomb.ammo_type.range_modifier == data.raw.ammo["atomic-bomb"].ammo_type.range_modifier)
 assert(hydrogen_bomb.ammo_type.action.action_delivery.projectile == "hydrogen-rocket")
 assert(hydrogen_recipe.energy_required == 50)
+assert(hydrogen_achievement.ammo_type == "hydrogen-bomb")
 
 data:extend
 {
@@ -313,5 +335,6 @@ data:extend
   hydrogen_rocket,
   hydrogen_bomb,
   hydrogen_recipe,
-  hydrogen_technology
+  hydrogen_technology,
+  hydrogen_achievement
 }
