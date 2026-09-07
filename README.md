@@ -10,10 +10,10 @@ Adds a late-game hydrogen bomb with far greater blast radius and damage than the
 - Requires Atomic bomb, Fusion reactor, and Legendary quality.
 - Research cost: 2000 × 60 s, using red, green, blue, military, yellow, white, orange, pink, agri, and cryo science.
 - Recipe:
-  - 1 Atomic bomb
-  - 10 Fusion power cells
-  - 10 Quantum processors
-  - 50 seconds crafting time
+    - 1 Atomic bomb
+    - 10 Fusion power cells
+    - 10 Quantum processors
+    - 50 seconds crafting time
 
 ## Safety
 
