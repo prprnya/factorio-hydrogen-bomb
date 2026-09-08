@@ -1,4 +1,12 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.4.0
+Date: 2026-09-08
+  Features:
+    - Added Traditional Chinese, Russian, German, Spanish, Brazilian Portuguese, French, Japanese, Korean, and Polish localization.
+  Changes:
+    - Refined English and Simplified Chinese localization for clearer terminology and safety warnings.
+    - Technology descriptions now reference the vanilla atomic bomb item directly for an unambiguous comparison.
+---------------------------------------------------------------------------------------------------
 Version: 0.3.0
 Date: 2026-09-07
   Features:

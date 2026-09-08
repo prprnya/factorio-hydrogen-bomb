@@ -10,6 +10,7 @@ Adds a late-game hydrogen bomb with a much larger explosion radius and much grea
 - Preserves the vanilla nuclear explosion style and surface-specific effects.
 - Requires Atomic bomb, Fusion reactor, and Legendary quality.
 - Research cost: 2000 × 60 s, using red, green, blue, military, yellow, white, orange, pink, agri, and cryo science.
+- Localization: English, Simplified Chinese, Traditional Chinese, Russian, German, Spanish, Brazilian Portuguese, French, Japanese, Korean, and Polish.
 - Recipe:
     - 1 Atomic bomb
     - 10 Fusion power cells
