@@ -10,5 +10,5 @@
     "quality >= 2.0.7"
   ],
   "space_travel_required": true,
-  "description": "Adds a late-game hydrogen bomb with far greater blast radius and damage than the atomic bomb."
+  "description": "Adds a late-game hydrogen bomb with a much larger explosion radius and much greater damage than the atomic bomb."
 }
