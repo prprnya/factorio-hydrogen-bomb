@@ -1,6 +1,6 @@
 {
   "name": "hydrogen-bomb",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "title": "Hydrogen Bomb",
   "author": "prprnya",
   "factorio_version": "2.1",
@@ -10,5 +10,5 @@
     "+ quality >= 2.1.0"
   ],
   "space_travel_required": true,
-  "description": "Adds a late-game hydrogen bomb with a much larger explosion radius and much greater damage than the atomic bomb."
+  "description": "Adds a hydrogen bomb to Space Age that unlocks in the late game, with a much larger explosion radius and much greater damage than the atomic bomb. Quality is recommended but not required."
 }

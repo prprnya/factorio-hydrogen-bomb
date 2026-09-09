@@ -1,4 +1,16 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.5.0
+Date: 2026-09-09
+  Features:
+    - Added support for Space Age games with Quality disabled.
+    - Added localized mod names and in-game mod descriptions for all supported languages.
+  Changes:
+    - Changed Quality from a required dependency to a recommended dependency.
+    - Removed Legendary quality from the Hydrogen bomb technology prerequisites.
+    - Safety warnings now adapt to whether Quality is enabled.
+    - Updated dependency version constraints to Factorio 2.1.
+    - Updated documentation to distinguish required and recommended dependencies and clarify compatibility with altered launch ranges.
+---------------------------------------------------------------------------------------------------
 Version: 0.4.0
 Date: 2026-09-08
   Features:
