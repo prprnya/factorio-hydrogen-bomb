@@ -3,6 +3,8 @@
   "version": "0.5.1",
   "title": "Hydrogen Bomb",
   "author": "prprnya",
+  "contact": "nya@prpr.cat",
+  "homepage": "https://github.com/prprnya/factorio-hydrogen-bomb",
   "factorio_version": "2.1",
   "dependencies": [
     "base >= 2.1.0",
