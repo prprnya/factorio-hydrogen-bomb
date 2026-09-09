@@ -7,7 +7,7 @@ Adds a hydrogen bomb to Space Age that unlocks in the late game, with a much lar
 - A new hydrogen bomb for the rocket launcher, Spidertron, and rocket turret.
 - A much larger explosion radius and much greater damage than the atomic bomb.
 - Preserves the vanilla nuclear explosion style and surface-specific effects.
-- A new in-game achievement, *A thousand suns*, for firing a hydrogen bomb.
+- A new in-game achievement, [*Brighter Than a Thousand Suns*](https://en.wikipedia.org/wiki/Brighter_than_a_Thousand_Suns_(book)), for firing a hydrogen bomb; its name is taken from Robert Jungk's book of the same title.
 
 ## Progression
 
