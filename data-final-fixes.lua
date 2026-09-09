@@ -229,7 +229,15 @@ hydrogen_bomb.pictures =
 }
 hydrogen_bomb.ammo_type.action.action_delivery.projectile = "hydrogen-rocket"
 hydrogen_bomb.order = data.raw["ammo"]["atomic-bomb"].order
-hydrogen_bomb.localised_description = {"item-description.hydrogen-bomb"}
+local legendary_quality_available =
+  mods["quality"] ~= nil
+  and data.raw.quality ~= nil
+  and data.raw.quality["legendary"] ~= nil
+
+hydrogen_bomb.localised_description =
+  legendary_quality_available
+    and {"item-description.hydrogen-bomb"}
+    or {"item-description.hydrogen-bomb-no-quality"}
 
 -- Production recipe: atomic primary + fusion fuel + end-game electronics.
 local hydrogen_recipe = clone_prototype("recipe", "atomic-bomb", "hydrogen-bomb")
@@ -265,7 +273,7 @@ hydrogen_technology.effects =
 {
   {type = "unlock-recipe", recipe = "hydrogen-bomb"}
 }
-hydrogen_technology.prerequisites = {"atomic-bomb", "fusion-reactor", "legendary-quality"}
+hydrogen_technology.prerequisites = {"atomic-bomb", "fusion-reactor"}
 hydrogen_technology.unit =
 {
   count = 2000,
