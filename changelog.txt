@@ -1,4 +1,12 @@
 ---------------------------------------------------------------------------------------------------
+Version: 0.5.2
+Date: 2026-09-10
+  Changes:
+    - Renamed the "A thousand suns" achievement to "Brighter Than a Thousand Suns", taking its name from Robert Jungk's book of the same title.
+    - Updated localized achievement names to use published translations of the book where available.
+    - Updated the README to identify and link Robert Jungk's book as the achievement's namesake.
+    - Added contact and homepage metadata to info.json.
+---------------------------------------------------------------------------------------------------
 Version: 0.5.1
 Date: 2026-09-09
   Changes:
