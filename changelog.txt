@@ -1,4 +1,10 @@
 ---------------------------------------------------------------------------------------------------
+Version: 1.0.0
+Date: 2026-10-27
+  Changes:
+    - Prepared the stable 1.0 release for Factorio 2.1.
+    - Kept damage, blast geometry, crafting costs, research requirements, achievement behavior, and visual effects unchanged from 0.5.2.
+---------------------------------------------------------------------------------------------------
 Version: 0.5.2
 Date: 2026-09-10
   Changes:
